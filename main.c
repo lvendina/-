@@ -6,10 +6,19 @@ void write_dot(const char * fname, int n, int m,  int g[n][m])
     FILE * fo;
     fo = fopen(fname,"wt");
     fprintf(fo, "graph Graph {\n");
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < m; ++j)
-            if (g[i][j] == 1)
-                fprintf( fo, "  %d -- %d;\n", i, j);
+    for (int j = 0; j < m; ++j)  {
+        int x1 = -1;
+        int x2 = -1;
+        for (int i = 0; i < n; ++i) 
+            if (g[i][j] == 1) {
+                if  (x1 != -1)
+                    x2 = i;
+                else
+                    x1 = i;
+            }
+        if (x1!=-1 && x2!=-1)
+            fprintf( fo, "  %d -- %d;\n", x1+1, x2+1);
+    }
     fprintf(fo, "}\n");
     fclose(fo);
 
@@ -18,9 +27,9 @@ void write_dot(const char * fname, int n, int m,  int g[n][m])
 
 void check_connect(int x, int u) {
     if ((x-1)*(x-2)/2 < u)
-        printf("The graph IS connected");
+        printf("Graph is connected");
     else
-        printf("the graph is NOT connected");
+        printf("Graph is not connected");
     return; 
 }
 
@@ -42,11 +51,26 @@ int main(void)
 
     write_dot("g.dot", x, u, Graph);
 
+    int conecting_x[x][x];
+    for (int j = 0; j < u; ++j) {
+        int x1 = -1;
+        int x2 = -1;
+        for (int i = 0; i < x; ++i)
+            if (Graph[i][j] == 1) {
+                if (x1 != -1) 
+                    x2 = i;
+                else
+                    x1 = i;
+            }
+        conecting_x[x1][x2] = 1;
+    }
     int real_count_u = 0;
     for (int i = 0; i < x; ++i)
-        for (int j = 0; j < u; ++j)
-            if (Graph[i][j] == 1)
+        for (int j = 0; j < x; ++j)
+            if (conecting_x[i][j] == 1)
                 ++real_count_u;
+
+    printf("%d\n", real_count_u);
     check_connect(x, real_count_u);
 
     return 0;
