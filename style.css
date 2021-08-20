@@ -1,0 +1,68 @@
+.block {
+	padding: 0;
+	}
+	.block .element{
+	border: solid 1px #E2E2E2;
+	margin: 0px 20px 20px 0px;
+	padding: 0px 0px 0px 0px;
+	float: left;
+	height: 405px;
+	width: 300px;
+	}
+	.block .img{
+	width: 300px;
+	height: 205px;
+	text-decoration: none;
+	border: solid 1px #E2E2E2;
+	}
+	.block .img img{
+	margin: 0px 0px 0px 0px;
+	padding: 0;
+	width: 300px;
+	height: 205px;
+	}
+	.block .text{
+	text-align: left;
+	margin-left: 25px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	font-family:Roboto, sans-serif;
+	color:#666666;
+	font-size: 15px;
+	}
+	.block .header{
+	font-family:Roboto, sans-serif;
+	margin-left: 25px;
+	margin-top: 30px;
+	color:#333333;
+	font-size: 20px;
+	font-weight: bold;
+	}
+	
+	.block .floor{
+	font-family:Roboto, sans-serif;
+	margin-left:25px;
+	margin-bottom :30px;
+	color:#333333;
+	font-size: 35px;
+	font-weight: bold;
+	}
+	.block .textval{
+	text-align: left;
+	padding: 0;
+	margin-left: 5px;
+	margin-top: 5px;
+	font-family:Roboto, sans-serif;
+	color:#666666;
+	font-size: 15px;
+	
+	.block .pin{
+	float: right;
+	width: 50px;
+	height: 40px;
+	padding-left: 1000px;
+	margin-right: 30px;
+	background-color: #4ED17B;
+	
+	
+	}
